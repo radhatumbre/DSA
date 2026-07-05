@@ -1,0 +1,33 @@
+Notes:
+
+Undirected Graph / Directed Graph
+
+Nodes/Vertex
+Edge (Undirected/Directed)
+Edge Weight
+
+Path
+Degrees (indegree, outdegree):
+    - undirected graph :  D(V) = 2E
+    - directed graph :    D(V) = In + Out
+
+Cycles in a Graph
+    - Start from a node & end at that same node
+    - even if one cycle if present its called Undirected Cyclic Graph
+    - else Acyclic Graph 
+    - famous Directed Acyclic Graph (DAG)
+
+
+Store :
+    - Adjacency Matric  O(N^2)
+    - Adjacency List    O(2E) / O(E)
+    - Weighted Graph : adjacency list uses pairs in list
+    
+Connected Components
+    - A connected component is a subgraph of a graph in which there exists a path between any two vertices, 
+    and no vertex of the subgraph shares an edge with a vertex outside of the subgraph.
+    - We keep VISITED ARRAY to make sure all nodes of the graph gets visited.
+
+
+
+
