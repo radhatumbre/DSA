@@ -1,0 +1,14 @@
+
+string to int
+string str = "540"
+int num = stoi(str);    // num = 540
+
+int to string
+string str = 5 +'0';    // str = '5'
+
+int to char
+int num = 5;
+char ch = num + '0'; // Result is '5'
+
+Reverse a string
+reverse(str.begin(), str.end());
