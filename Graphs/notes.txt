@@ -29,5 +29,27 @@ Connected Components
     - We keep VISITED ARRAY to make sure all nodes of the graph gets visited.
 
 
+BFS (Breadth First Search)
+    - Level Wise Traversal
+    - Usage : Queue & Visited Array
+    - Logic :
+        Initial :
+            1. Add starting node to Queue 
+            2. Mark starting node visited
+        While (till queue is not empty) :
+            1. Take front out (add to answer/print)
+            2. Add it neighbours to queue -> if not visited
+            3. Mark neighbours Visited
+    - Time Complexity : O(N+2E) 
+        -> N : Queue, while loop 
+        -> 2E Total Edges, for loop : it checks neighbours which is basically all edges in graph
+    - Space Complexity : o(2N)
+        -> N : Queue
+        -> N : Visited Array
+
+DFS
+
+
+
 
 

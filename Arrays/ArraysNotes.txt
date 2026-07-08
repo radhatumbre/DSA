@@ -1,0 +1,6 @@
+
+
+# Two Point - where we care only two elements from the array (dont care what in between)
+# Sliding Window - we care about what in between two elements (Fails when negative nums present)
+# Kadanes Algo - Works with negative num (but only finds max)
+# Prefix Sum - if above three fails, it can be solved by prefix
