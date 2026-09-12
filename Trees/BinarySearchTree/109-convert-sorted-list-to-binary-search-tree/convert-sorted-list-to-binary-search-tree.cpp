@@ -21,18 +21,22 @@
  */
 class Solution {
 public:
+    ListNode* middle(ListNode* head, ListNode* end){
+        ListNode* fast = head;
+        ListNode* slow = head;
+        while(fast != end && fast->next != end){
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        return slow;
+    }
     TreeNode* buildTree(ListNode* start, ListNode* end){
         if(start==end) return NULL;
-        ListNode* slow = start;
-        ListNode* fast = start;
-        while(fast!=end && fast->next!=end){
-            slow = slow->next;
-            fast = fast->next->next;
-        }
-        // slow is head of tree
-        TreeNode* head = new TreeNode(slow->val);
-        head->left = buildTree(start, slow);
-        head->right = buildTree(slow->next, end);
+        ListNode* middleNode = middle(start,end);
+        if(middleNode == nullptr) return NULL;
+        TreeNode* head = new TreeNode(middleNode->val);
+        head->left = buildTree(start, middleNode);
+        head->right = buildTree(middleNode->next, end);
         return head;
     }
     TreeNode* sortedListToBST(ListNode* head) {
