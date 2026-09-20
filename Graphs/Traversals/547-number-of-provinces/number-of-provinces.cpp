@@ -1,11 +1,11 @@
 class Solution {
 public:
 
-    void dfs(int ind, int v,vector<vector<int>>& isConnected, vector<int> &vis){
+    void dfs(int ind, vector<vector<int>>& isConnected, vector<int> &vis){
         vis[ind]=1;
-        for(int i=0;i<v;i++){
-            if(isConnected[ind][i] && !vis[i] && i!=ind){
-                dfs(i,v,isConnected, vis);
+        for(int i=0;i<isConnected.size();i++){
+            if(isConnected[ind][i] && !vis[i]){
+                dfs(i,isConnected, vis);
             }
         }
     }
@@ -14,10 +14,11 @@ public:
         int v = isConnected.size();
         vector<int> vis(v,0);
         int result =0;
-        for(int i=0;i<v; i++){
+        
+        for(int i=0;i<isConnected.size(); i++){
             if(!vis[i]){
                 result++;
-                dfs(i,v,isConnected,vis);
+                dfs(i,isConnected,vis);
             }
         }
         return result;
