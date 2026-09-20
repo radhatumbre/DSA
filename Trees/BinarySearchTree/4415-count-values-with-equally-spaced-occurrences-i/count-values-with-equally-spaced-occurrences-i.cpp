@@ -1,25 +1,23 @@
 class Solution {
 public:
     int countSpecialIntegers(vector<int>& nums) {
-        map<int, vector<int> > mp;
-        for(int i=0; i<nums.size(); i++){
-            if(mp.find(nums[i])!=mp.end()){
-                vector<int> temp = mp[nums[i]];
-                temp.push_back(i);
-                
-                mp[nums[i]] = temp;
+        int n=nums.size();
+        int r = 0;
+        std::vector<int> freq(100, 0);
+        for (int c : nums) {
+            freq[c - 1]++;
+        }
+        for (int i = 0; i < n; i++) {
+            int c = nums[i];
+            if (freq[c - 1] != 3) continue;
+            freq[c - 1] = -1;
+            for (int distance = 1; i + (distance * 2) < n; distance++) {
+                if (nums[i + distance] == c && nums[i + (distance * 2)] == c) {
+                    r++;
+                    break;
+                }
             }
-            else mp[nums[i]] = {i};
         }
-        vector<int> candidates;
-        for(auto i:mp){
-            if(i.second.size()==3) candidates.push_back(i.first);
-        }
-        int count = 0;
-        for(int i=0; i<candidates.size(); i++){
-            vector<int> arr = mp[candidates[i]];
-            if((arr[1]-arr[0])==(arr[2]-arr[1]))    count++;
-        }
-        return count;
+        return r;
     }
 };
